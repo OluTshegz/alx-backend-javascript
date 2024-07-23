@@ -1,5 +1,0 @@
-createEmployeesObject = (departmentName, employees) => {
-    departmentName: [
-        ...employees,
-    ],
-}
