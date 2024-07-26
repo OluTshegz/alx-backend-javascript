@@ -1,14 +1,13 @@
 /* eslint-disable */
 export default class Building {
     constructor(sqft) {
-        if ( this.constructor.name != Building &&
-            (this.evacuationWarningMessage === undefined ||
-                !this.evacuationWarningMessage) ) {
-            throw new Error('Class extending Building must override evacuationWarningMessage');
-        } // It checks/confirms if this abstract class extends or any class can extend from it
         if (typeof sqft !== 'number') throw new Error();
         this._sqft = sqft;
-        this.evacuationWarningMessage();
+        if (this.constructor !== Building) {
+            if (typeof this.evacuationWarningMessage !== 'function')
+                throw new Error('Class extending Building must override evacuationWarningMessage');
+        }
+        // this.evacuationWarningMessage();
     }
     // Getter for sqft
     get sqft() {
@@ -18,7 +17,9 @@ export default class Building {
     set sqft(value) {
         this._sqft = value;
     }
-    evacuationWarningMessage() {
-        if (this.constructor.name !== 'Building') throw new Error('Class extending Building must override evacuationWarningMessage');
-    }
+    // This should be overridden in subclasses
+    // evacuationWarningMessage() {
+    //     if (this.constructor.name !== 'Building') 
+    //         throw new Error('Class extending Building must override evacuationWarningMessage');
+    // }
 }
