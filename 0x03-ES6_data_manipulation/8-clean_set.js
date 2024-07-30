@@ -2,7 +2,9 @@
 export default function cleanSet(set, startString) {
   // If startString is an empty string, return an empty string immediately
   // if (startString === undefined || startString.length === 0 || startString === '') {
-  if (!startString) return '';
+  if (!startString || startString === undefined || startString === '' || startString.length === 0) {
+    return '';
+  }
 
   // Use `Array.from` to 'convert' the `set` to an `array` and `map` over its `values`
   // return Array.from(set)
