@@ -2,85 +2,87 @@
  * Represents a teacher with required and optional attributes.
  */
 interface Teacher {
-    readonly firstName: string;
-    readonly lastName: string;
-    fullTimeEmployee: boolean;
-    yearsOfExperience?: number;
-    location: string;
-    [propName: string]: any; // Index signature to allow additional properties
-  }
-  
-  /**
-   * Represents a director, extending the Teacher interface.
-   * Requires an attribute named numberOfReports.
-   */
-  interface Directors extends Teacher {
-    numberOfReports: number;
-  }
-  
-  /**
-   * Defines a function type for printing a teacher's name.
-   * @param firstName - The teacher's first name.
-   * @param lastName - The teacher's last name.
-   * @returns A string formatted as "FirstInitial. LastName".
-   */
-  interface printTeacherFunction {
-    (firstName: string, lastName: string): string;
-  }
-  
-  /**
-   * Implements the printTeacher function according to the printTeacherFunction interface.
-   * Formats the name as "FirstNameInitial. LastName".
-   * @param firstName - The teacher's first name.
-   * @param lastName - The teacher's last name.
-   * @returns A string formatted as "FirstInitial. LastName".
-   */
-  const printTeacher: printTeacherFunction = (firstName, lastName) =>
-    `${firstName.charAt(0)}. ${lastName}`;
-  
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [propName: string]: any; // Index signature to allow additional properties
+}
+
+/**
+ * Represents a director, extending the Teacher interface.
+ * Requires an attribute named numberOfReports.
+ */
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+
+/**
+ * Defines a function type for printing a teacher's name.
+ * @param firstName - The teacher's first name.
+ * @param lastName - The teacher's last name.
+ * @returns A string formatted as "FirstInitial. LastName".
+ */
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+/**
+ * Implements the printTeacher function according to the printTeacherFunction interface.
+ * Formats the name as "FirstNameInitial. LastName".
+ * @param firstName - The teacher's first name.
+ * @param lastName - The teacher's last name.
+ * @returns A string formatted as "FirstNameInitial. LastName".
+ */
+const printTeacher: printTeacherFunction = (firstName: string, lastName: string) => 
+  `${firstName.charAt(0)}. ${lastName}`;
+
+
 /**
  * Interface describing the constructor for StudentClass.
  */
 interface StudentClassConstructor {
-    new (firstName: string, lastName: string): StudentClass;
+  new (firstName: string, lastName: string): StudentClass;
 }
 
-  /**
-   * Interface defining properties and methods for a StudentClass.
-   */
-  interface StudentClassInterface {
-    workOnHomework(): string;
-    displayName(): string;
-  }
-  
-  /**
-   * Represents a student class implementing the StudentClassInterface.
-   */
-  class StudentClass implements StudentClassInterface {
-    firstName: string;
-    lastName: string;
-  
-    constructor(firstName: string, lastName: string) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-    }
+/**
+ * Interface defining properties and methods for a StudentClass.
+ */
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
 
-    /**
-     * Indicates that the student is working on homework.
-     * @returns A string indicating the student is currently working.
-     */
-    workOnHomework(): string {
-        return "Currently working";
-    }
-  
-    /**
-     * Displays the first name and last name of the student.
-     * @returns The first and last name of the student.
-     */
-    displayName(): string {
-      return `${this.firstName}` + ' ' + `${this.lastName}`;
-    }
+/**
+ * Represents a student class implementing the StudentClassInterface.
+ */
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
+
+  /**
+   * Indicates that the student is working on homework.
+   * @returns A string indicating the student is currently working.
+   */
+  workOnHomework(): string {
+      return "Currently working";
+  }
+
+  /**
+   * Displays the first name and last name of the student.
+   * @returns The first and last name of the student.
+   */
+  displayName(): string {
+    return `${this.firstName}` + ' ' + `${this.lastName}`;
+  }
+}
 
 // /**
 //  * Function that creates a student using a class constructor.
@@ -123,18 +125,18 @@ interface StudentClassConstructor {
 // The StudentClassConstructor interface is valuable when you need to work with the constructor type of a class, especially in situations where you might need to pass constructors around or dynamically create instances of a class. It ensures that any usage of the constructor adheres to the expected parameters and return type.
 
 
-  // Example usage
+// Example usage
 
-  // Creating a Teacher object
-  const teacher1: Teacher = {
-    firstName: 'Jane',
-    lastName: 'Smith',
-    fullTimeEmployee: true,
-    location: 'Paris',
-    contract: true,
-  };
-  
-  console.log(teacher1);
+// Creating a Teacher object
+const teacher1: Teacher = {
+  firstName: 'Jane',
+  lastName: 'Smith',
+  fullTimeEmployee: true,
+  location: 'Paris',
+  contract: true,
+};
+
+console.log(teacher1);
 
 // should print
 // Object
@@ -144,16 +146,16 @@ interface StudentClassConstructor {
 // lastName: "Smith"
 // location: "Paris"
 
-  // Creating a Teacher object
-  const teacher3: Teacher = {
-    firstName: 'John',
-    fullTimeEmployee: false,
-    lastName: 'Doe',
-    location: 'London',
-    contract: false, // Additional property
-  };
-  
-  console.log(teacher3);
+// Creating a Teacher object
+const teacher3: Teacher = {
+  firstName: 'John',
+  fullTimeEmployee: false,
+  lastName: 'Doe',
+  location: 'London',
+  contract: false, // Additional property
+};
+
+console.log(teacher3);
 
 // should print
 // Object
@@ -162,19 +164,19 @@ interface StudentClassConstructor {
 // fullTimeEmployee: false
 // lastName: "Doe"
 // location: "London"
-  
-  // Creating a Director object with the required additional properties
-  const director1: Directors = {
-    firstName: 'Alice',
-    lastName: 'Johnson',
-    fullTimeEmployee: true,
-    location: 'New York',
-    numberOfReports: 5,
-    contract: false,           // Additional property
-    yearsOfExperience: 10      // Optional property from Teacher interface
-  };
-  
-  console.log(director1);
+
+// Creating a Director object with the required additional properties
+const director1: Directors = {
+  firstName: 'Alice',
+  lastName: 'Johnson',
+  fullTimeEmployee: true,
+  location: 'New York',
+  numberOfReports: 5,
+  contract: false,           // Additional property
+  yearsOfExperience: 10      // Optional property from Teacher interface
+};
+
+console.log(director1);
 
 // should print
 // Object
@@ -185,11 +187,11 @@ interface StudentClassConstructor {
 // location: "New York"
 // numberOfReports: 5
 // yearsOfExperience: 10
-  
-  // Using the printTeacher function
-  console.log(printTeacher('John', 'Doe')); // Output: J. Doe
-  
-  // Creating a StudentClass object and using its methods
-  const student1 = new StudentClass('Mark', 'Jones');
-  console.log(student1.workOnHomework()); // Output: Currently working
-  console.log(student1.displayName()); // Output: Mark Jones
+
+// Using the printTeacher function
+console.log(printTeacher('John', 'Doe')); // Output: J. Doe
+
+// Creating a StudentClass object and using its methods
+const student1 = new StudentClass('Mark', 'Jones');
+console.log(student1.workOnHomework()); // Output: Currently working
+console.log(student1.displayName()); // Output: Mark Jones
