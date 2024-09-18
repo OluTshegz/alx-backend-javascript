@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Import the fs (file system) module for reading files
 const fs = require('fs');
 
