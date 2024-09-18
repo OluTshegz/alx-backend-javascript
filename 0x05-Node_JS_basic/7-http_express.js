@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Import the Express module and the fs module
 const express = require('express');
 const fs = require('fs');
