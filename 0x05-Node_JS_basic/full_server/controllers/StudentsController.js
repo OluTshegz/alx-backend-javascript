@@ -1,4 +1,4 @@
-import { readDatabase } from '../utils'; // Import the readDatabase function
+import readDatabase from '../utils'; // Import the readDatabase function
 
 // Define and export the StudentsController class
 export default class StudentsController {
