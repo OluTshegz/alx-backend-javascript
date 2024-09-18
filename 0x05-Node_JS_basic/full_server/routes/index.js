@@ -1,6 +1,6 @@
 import { Router } from 'express'; // Import express router
-import AppController from '../controllers/AppController.js'; // Import AppController
-import StudentsController from '../controllers/StudentsController.js'; // Import StudentsController
+import AppController from '../controllers/AppController'; // Import AppController
+import StudentsController from '../controllers/StudentsController'; // Import StudentsController
 
 const router = Router(); // Create a new router instance
 

@@ -43,7 +43,6 @@ function countStudents(path) {
       const studentList = fields[field];
       console.log(`Number of students in ${field}: ${studentList.length}. List: ${studentList.join(', ')}`);
     }
-
   } catch (error) {
     // If there is an error (like file not found), throw a custom error message
     throw new Error('Cannot load the database');

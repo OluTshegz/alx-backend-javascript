@@ -16,5 +16,5 @@ process.stdin.on('data', (userInput) => {
 // Handle the 'exit' event of the process,
 // showing a message before the program closes
 process.on('exit', () => {
-  console.log("This important software is now closing");
+  console.log('This important software is now closing');
 });
