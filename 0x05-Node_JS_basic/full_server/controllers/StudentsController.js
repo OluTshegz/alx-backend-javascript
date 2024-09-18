@@ -24,7 +24,7 @@ export default class StudentsController {
 
   // Static method to handle /students/:major route
   static getAllStudentsByMajor(req, res) {
-    const { major } = req.params; // Get major from URL parameters
+    const major = req.params.major; // Get major from URL parameters
     const databaseFile = process.argv[2]; // Get database file path from command line
 
     // Check if the major is either CS or SWE
