@@ -34,6 +34,8 @@ function countStudents(path) {
 
 // Create an HTTP server
 const app = http.createServer((req, res) => {
+  // res.statusCode = 200;
+  // res.setHeader('Content-Type', 'text/plain');
   if (req.url === '/') {
     // Handle requests to the root endpoint "/"
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -41,11 +43,16 @@ const app = http.createServer((req, res) => {
   } else if (req.url === '/students') {
     // Handle requests to the "/students" endpoint
     res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.write('This is the list of our students\n');
     // Get the student data asynchronously
-    countStudents(process.argv[2]).then((output) => {
-      res.end(`This is the list of our students\n${output}`);
+    countStudents(process.argv[2].toString())
+    .then((output) => {
+      // res.end(`${output}`);
+      res.end(output);
     }).catch((error) => {
-      res.end(error.message);
+      // res.end(error.message);
+      res.statusCode = 404;
+      res.end('Cannot load the database');
     });
   }
 });
