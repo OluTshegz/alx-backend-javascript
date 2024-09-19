@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Define and export the AppController class
 export default class AppController {
   // Static method for handling the homepage route

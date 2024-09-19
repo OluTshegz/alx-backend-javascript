@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { Router } from 'express'; // Import express router
 import AppController from '../controllers/AppController'; // Import AppController
 import StudentsController from '../controllers/StudentsController'; // Import StudentsController

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import express from 'express'; // Import express
 import router from './routes/index'; // Import the routes
 

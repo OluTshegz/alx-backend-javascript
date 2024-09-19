@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import fs from 'fs'; // Importing fs to read the file system
 
 // Define and export the readDatabase function

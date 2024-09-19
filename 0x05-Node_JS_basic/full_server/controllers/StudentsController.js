@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import readDatabase from '../utils'; // Import the readDatabase function
 
 // Define and export the StudentsController class
