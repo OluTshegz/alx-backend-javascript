@@ -38,20 +38,24 @@ function countStudents(path) {
 // Define a route handler for the root ("/") endpoint
 app.get('/', (req, res) => {
   // Send a plain text response with "Hello Holberton School!"
+  res.set('Content-Type', 'text/plain');
   res.send('Hello Holberton School!');
 });
 
 // Define a route handler for the "/students" endpoint
 app.get('/students', (req, res) => {
+  res.set('Content-Type', 'text/plain');
+  res.write('This is the list of our students\n');
   // Read the student data asynchronously
-  countStudents(process.argv[2])
+  countStudents(process.argv[2].toString())
     .then((output) => {
       // Respond with the list of students
-      res.send(`This is the list of our students\n${output}`);
+      res.send(`${output}`);
     })
     .catch((error) => {
       // Respond with an error message if the database cannot be loaded
-      res.send(error.message);
+      // res.send(error.message);
+      res.send('Cannot load the database');
     });
 });
 
