@@ -3,6 +3,8 @@
 // Import the assert module from Node.js to perform assertions
 const assert = require('assert');
 
+const {it, describe} = require('mocha');
+
 // Import the function to be tested from the 0-calcul.js file
 const calculateNumber = require('./0-calcul.js');
 
@@ -26,5 +28,9 @@ describe('calculateNumber', () => {
   // Test case 4: Verify rounding when rounding leads to higher values
   it('should return 6 when inputs are 1.5 and 3.7', () => {
     assert.equal(calculateNumber(1.5, 3.7), 6);
+  });
+
+  it('checking negative return value', () => {
+    assert.equal(calculateNumber(-1.3, -3.7), -5);
   });
 });
