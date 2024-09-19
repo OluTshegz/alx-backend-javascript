@@ -45,17 +45,16 @@ app.get('/', (req, res) => {
 // Define a route handler for the "/students" endpoint
 app.get('/students', (req, res) => {
   res.set('Content-Type', 'text/plain');
-  res.write('This is the list of our students\n');
   // Read the student data asynchronously
   countStudents(process.argv[2].toString())
     .then((output) => {
       // Respond with the list of students
-      res.send(`${output}`);
+      res.send(`This is the list of our students\n${output}`);
     })
     .catch((error) => {
       // Respond with an error message if the database cannot be loaded
       // res.send(error.message);
-      res.send('Cannot load the database');
+      res.send('This is the list of our students\nCannot load the database');
     });
 });
 
