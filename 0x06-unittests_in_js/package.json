@@ -15,7 +15,8 @@
         "eslint-plugin-jest": "^24.7.0",
         "globals": "^15.9.0",
         "mocha": "^10.7.3",
-        "sinon": "^19.0.2"
+        "sinon": "^19.0.2",
+        "typescript": "^5.6.2"
     },
     "dependencies": {
         "request": "^2.88.2",
