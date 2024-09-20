@@ -5,23 +5,24 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "check-lint": "lint [0-9]*.js"
     },
     "author": "OluTshegz",
     "license": "Holberton School/ALX",
+    "dependencies": {
+        "jest": "^29.7.0",
+        "express": "^4.21.0"
+    },
     "devDependencies": {
-        "@eslint/eslintrc": "^3.1.0",
-        "@eslint/js": "^9.10.0",
         "chai": "^5.1.1",
         "eslint": "^9.10.0",
-        "eslint-plugin-jest": "^24.7.0",
         "globals": "^15.9.0",
         "mocha": "^10.7.3",
+        "nodemon": "3.1.6",
+        "request": "^2.88.2",
         "sinon": "^19.0.2",
         "typescript": "^5.6.2"
-    },
-    "dependencies": {
-        "request": "^2.88.2",
-        "request-ip": "^3.3.0"
     }
 }
