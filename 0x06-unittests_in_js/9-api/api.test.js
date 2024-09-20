@@ -1,10 +1,18 @@
+// Import necessary modules: chai for assertions
+// and request to make HTTP requests to the server
+const chai = require('chai');
+const request = require('request');
+const expect = chai.expect; // Extract 'expect' for assertions
+
 // Test suite for the cart page
 describe('Cart page', () => {
   // Test case: Correct status code when `id` is a number
   it('Correct status code when :id is a number', (done) => {
     request.get('http://localhost:7865/cart/12', (error, response, body) => {
-      expect(response.statusCode).to.equal(200); // Expect 200 status for valid `id`
-      expect(body).to.equal('Payment methods for cart 12'); // Expect correct response body
+      // Expect 200 status for valid `id`
+      expect(response.statusCode).to.equal(200);
+      // Expect correct response body
+      expect(body).to.equal('Payment methods for cart 12');
       done(); // Call done when the test finishes
     });
   });
@@ -12,7 +20,8 @@ describe('Cart page', () => {
   // Test case: Correct status code when `id` is NOT a number (should return 404)
   it('Correct status code when :id is NOT a number', (done) => {
     request.get('http://localhost:7865/cart/hello', (error, response, body) => {
-      expect(response.statusCode).to.equal(404); // Expect 404 for invalid `id`
+      // Expect 404 for invalid `id`
+      expect(response.statusCode).to.equal(404);
       done(); // Call done when the test finishes
     });
   });
