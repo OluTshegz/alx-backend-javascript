@@ -13,7 +13,7 @@ export default class StudentsController {
 
       // Sort fields alphabetically and build the response
       Object.keys(studentsByField).sort().forEach((field) => {
-        response += `Number of students in ${field}: ${studentsByField[field].length}. List: {studentsByField[field].join(', ')}\n`;
+        response += `Number of students in ${field}: ${studentsByField[field].length}. List: ${studentsByField[field].join(', ')}\n`;
       });
 
       // Send the response with 200 status
